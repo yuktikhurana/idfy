@@ -1,0 +1,26 @@
+.ethnicity-listing a.active {
+  color: #5cb85c;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+blockquote.style4 {
+  font: 20px italic Times, serif;
+  padding-left: 70px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 10px;
+  background-color: #dadada;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url('openquote4.gif');
+  background-position: left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+  border: none;
+}
+
+.container-fluid {
+  margin: 1%;
+}

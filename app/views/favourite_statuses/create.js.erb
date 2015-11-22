@@ -1,0 +1,9 @@
+var memberPanel = $('#member_<%= @status.member_id %>');
+var messageBar = memberPanel.find('.alert');
+messageBar.addClass('hidden');
+<% if @success %>
+  var favouriteElement = memberPanel.find('.favourite');
+  favouriteElement.html('<span class="label label-success">Favourited!</span>');
+<% else %>
+  messageBar.html("<%= flash.now[:alert] %>").addClass('alert-danger').removeClass('hidden');
+<% end %>

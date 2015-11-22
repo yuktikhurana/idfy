@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Ethnicity</h4>
+  </div>
+  <div class="panel-body">
+    <ul class="ethnicity-listing list-group">
+      <li class="listing-block list-group-item"><%= link_to 'All', root_path(page: params[:page]), class: active_class_for_ethnicity %></li>
+      <% MemberService::ETHNICITY.each do |ethnicity, value| %>
+        <li class="listing-block list-group-item"><%= link_to ethnicity, root_path(ethnicity: value, page: params[:page]), class: active_class_for_ethnicity(value) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

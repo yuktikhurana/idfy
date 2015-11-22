@@ -1,0 +1,21 @@
+<div>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Favourites</h4>
+      </div>
+      <div class="panel-body">
+          <% if @favourite_statuses.present? %>
+          <ul class="list-group">
+            <%= render @favourite_statuses %>
+          </ul>
+            <div><%= paginate @favourite_statuses %></div>    
+          <% else %>
+            No favourites found
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <%= link_to 'Members Listing', root_path, class: 'btn btn-default' %>
+  </div>
+</div>

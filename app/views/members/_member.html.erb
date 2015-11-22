@@ -1,0 +1,35 @@
+<div class="panel panel-default member" id="member_<%= member.id %>">
+  <div class="panel-body">
+    <div class="alert hidden"></div>
+    <div class="col-md-3">
+      <div><%= image_tag member.image %></div>
+      <div data-ethnicity='<%= MemberService::ETHNICITY.key(member.ethnicity).downcase %>'><span class="text-center label label-default"><%= MemberService::ETHNICITY.key(member.ethnicity) %></span></div>
+    </div>      
+    <div class="col-md-9">
+      <div data-status="<%= member.status.downcase %>">
+        <blockquote class='style4'><%= member.status %></blockquote>
+      </div>
+      <dl class="dl-horizontal">
+        <dt>Drinks</dt>
+        <dd><span class="glyphicon glyphicon-<%= yes_no_icon(member.drinks) %>" aria-hidden="true"></span></dd>
+        <dt>Vegan</dt>
+        <dd data-vegan='<%= member.vegan %>'><span class="glyphicon glyphicon-<%= yes_no_icon(member.vegan) %>" aria-hidden="true"></span></dd>
+        <dt>Height</dt>
+        <dd data-height="<%= member.height %>"><span><%= member.height %> cm</span></dd>
+        <dt>Weight</dt>
+        <dd><span><%= member.weight %> Kg</span></dd>
+      </dl>
+      <div class="favourite">
+        <% if favourited?(member.id, @favourites) %>
+          <span class="label label-success">Favourited!</span>
+        <% else %>
+          <%= form_for @user.favourite_statuses.build, remote: true do |f| %>
+            <%= f.hidden_field :status, value: member.status %>
+            <%= f.hidden_field :member_id, value: member.id %>
+            <%= f.submit 'Add to Favourites', class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

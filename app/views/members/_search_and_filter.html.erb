@@ -1,0 +1,10 @@
+<div class="col-md-4 col-md-offset-2">
+  <div class="form-group">
+    <%= search_field_tag :query, params[:query], placeholder: 'Search (by status, height or ethnicity)', class: 'form-control', id: 'search_members' %>
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="form-group">
+    <%= link_to 'Toggle Vegan', 'javscript:', id: 'toggle_vegan', class: 'btn btn-default' %>
+  </div>
+</div>

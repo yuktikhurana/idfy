@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <%= render 'search_and_filter' %>
+</div>
+<div class="col-md-12">
+  <div class="col-md-2">
+    <%= render 'ethnicity_block' %>
+    <div>
+      <ul class="list-group">
+        <li class="listing-block list-group-item">Total Status: <%= @members.count %></li>
+        <li class="listing-block list-group-item">API hits: <%= MemberService.api_hits %></li>
+      </ul>
+    </div>
+    <div>
+      <%= link_to 'My Favourites', favourite_statuses_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">Members</h4>
+      </div>
+      <div class="panel-body">
+        <% if @members.present? %>
+          <div>
+            <%= render partial: 'member', collection: @members %>
+          </div>
+        <% else %>
+          No results found
+        <% end %>
+        <div>
+          <nav>
+            <ul class="pager">
+              <%= pagination_links %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
